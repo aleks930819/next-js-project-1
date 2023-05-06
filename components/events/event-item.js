@@ -1,3 +1,5 @@
+import classes from './event-item.module.css';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -6,14 +8,14 @@ const exploreLink = (id) => `/events/${id}`;
 
 const EventItem = (props) => {
   return (
-    <li>
+    <li className={classes.item}>
       <Image
         src={`/${props.image}`}
         alt={props.title}
         width={250}
         height={160}
       />
-      <div>
+      <div className={classes.content}>
         <div>
           <h2>{props.title}</h2>
         </div>
@@ -24,7 +26,7 @@ const EventItem = (props) => {
           <address>{formattedAddress(props.location)}</address>
         </div>
       </div>
-      <div>
+      <div className={classes.actions}>
         <Link href={exploreLink(props.id)}>Explore Event</Link>
       </div>
     </li>
