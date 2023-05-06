@@ -1,5 +1,15 @@
 import styles from '@/styles/Home.module.css';
 
+import { getFeaturedEvents } from '@/dummy-data';
+
+import EventList from '@/components/events/event-list';
+
 export default function HomePage() {
-  return <div className={styles.container}></div>;
+  const events = getFeaturedEvents();
+
+  return (
+    <div className={styles.container}>
+      <EventList items={events} />
+    </div>
+  );
 }
